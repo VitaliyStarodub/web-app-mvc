@@ -1,11 +1,18 @@
 package com.starodub.model;
 
+@TableName(name = "products")
 public class Product {
 
+    @ColumnName(name = "ID")
     private Long id;
+    @ColumnName(name = "NAME")
     private String name;
+    @ColumnName(name = "PRICE")
     private Double price;
+    @ColumnName(name = "DESCRIPTION")
     private String description;
+    @SeparateModel
+    @ColumnName(name = "FK_CATEGORIES")
     private Category category;
 
     public Product(String name, Double price, String descriprion) {
@@ -78,7 +85,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", category=" + category.getName() +
+                ", category=" + category +
                 '}';
     }
 

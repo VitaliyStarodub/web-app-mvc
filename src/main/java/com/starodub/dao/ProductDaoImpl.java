@@ -16,7 +16,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
         super(connection);
     }
 
-    @Override
+    /*@Override
     public Product findById(Long aLong) {
         String query = "SELECT ID, NAME, PRICE, DESCRIPTION FROM PRODUCTS WHERE ID = ?;";
         PreparedStatement statement;
@@ -33,7 +33,9 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
             e.printStackTrace();
         }
         return product;
-    }
+    }*/
+
+
 
     @Override
     public List<Product> findAll() {
@@ -78,7 +80,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
         return product;
     }
 
-    @Override
+    /*@Override
     public void deleteByID(Long aLong) {
         String query = "DELETE FROM PRODUCTS WHERE ID = ?;";
         PreparedStatement statement;
@@ -91,7 +93,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     @Override
     public void save(Product product) {

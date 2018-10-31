@@ -3,13 +3,20 @@ package com.starodub.model;
 import java.util.HashSet;
 import java.util.Set;
 
+@TableName(name = "users")
 public class User {
 
+    @ColumnName(name = "ID")
     private Long id;
+    @ColumnName(name = "EMAIL")
     private String email;
+    @ColumnName(name = "PASSWORD")
     private String password;
+    @ColumnName(name = "TOKEN")
     private String token;
+    @ColumnName(name = "FIRST_NAME")
     private String firstName;
+    @ColumnName(name = "LAST_NAME")
     private String lastName;
     private Set<Role> roles = new HashSet<>();
 

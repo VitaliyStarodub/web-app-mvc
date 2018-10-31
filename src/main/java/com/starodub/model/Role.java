@@ -1,6 +1,6 @@
 package com.starodub.model;
 
-
+@TableName(name = "role")
 public class Role {
 
     private RoleName roleName;

@@ -15,7 +15,7 @@ public class GetCategoryByIdController implements Controller {
 
     @Override
     public ViewModel process(Request request) {
-        Category category =(Category)categoryDao.findByIdJoinProduct(getIdFromRequest(request));
+        Category category =(Category)categoryDao.findById(getIdFromRequest(request));
         ViewModel vm = ViewModel.of("category");
         vm.addAttribute("category", category);
 

@@ -2,9 +2,11 @@ package com.starodub.model;
 
 import java.util.List;
 
+@TableName(name = "categories")
 public class Category {
-
+    @ColumnName(name = "ID")
     private Long id;
+    @ColumnName(name = "CATEGORY_NAME")
     private String name;
     private List<Product> products;
 
@@ -17,6 +19,10 @@ public class Category {
 
     public Category(Long id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Category(String name) {
         this.name = name;
     }
 

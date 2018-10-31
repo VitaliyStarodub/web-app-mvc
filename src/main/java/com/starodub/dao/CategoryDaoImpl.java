@@ -13,7 +13,7 @@ public class CategoryDaoImpl extends AbstractDao<Category, Long> implements Cate
         super(connection);
     }
 
-    @Override
+    /*@Override
     public List<Category> findAll() {
         String query = "SELECT ID, CATEGORY_NAME FROM CATEGORIES";
         Statement statement = null;
@@ -37,10 +37,10 @@ public class CategoryDaoImpl extends AbstractDao<Category, Long> implements Cate
         }
 
         return categories;
-    }
+    }*/
 
-
-    public Category findByIdJoinProduct(Long id) {
+    @Override
+    public Category findById(Long id) {
         String query = "SELECT C.ID, C.CATEGORY_NAME, P.ID, P.NAME, P.PRICE, P.DESCRIPTION FROM CATEGORIES C" +
                 " JOIN PRODUCTS P ON C.ID = P.FK_CATEGORIES WHERE C.ID = ?;";
         PreparedStatement statement;
