@@ -79,6 +79,21 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
     }
 
     @Override
+    public void deleteByID(Long aLong) {
+        String query = "DELETE FROM PRODUCTS WHERE ID = ?;";
+        PreparedStatement statement;
+
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setLong(1, aLong);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void save(Product product) {
         String query = "INSERT INTO PRODUCTS (NAME, PRICE, DESCRIPTION, FK_CATEGORIES) VALUES (?, ?, ?, ?);";
         PreparedStatement statement;
@@ -89,6 +104,26 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
             statement.setDouble(2, product.getPrice());
             statement.setString(3, product.getDescription());
             statement.setLong(4, product.getCategory().getId());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void editObject(Long id, Product product) {
+        String query = "UPDATE PRODUCTS SET NAME = ?, PRICE = ?, DESCRIPTION = ?, FK_CATEGORIES = ?" +
+                " WHERE ID = ?;";
+        PreparedStatement statement;
+
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setString(1, product.getName());
+            statement.setDouble(2, product.getPrice());
+            statement.setString(3, product.getDescription());
+            statement.setLong(4, product.getCategory().getId());
+            statement.setLong(5, id);
             statement.executeUpdate();
 
         } catch (SQLException e) {

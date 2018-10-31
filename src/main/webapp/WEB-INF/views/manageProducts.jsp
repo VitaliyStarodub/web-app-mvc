@@ -37,6 +37,9 @@
                 <h4>Price</h4>
             </div>
             <div class="col-md-2">
+                <h4>Description</h4>
+            </div>
+            <div class="col-md-2">
                 <h4>Category Name</h4>
             </div>
         </div>
@@ -49,18 +52,28 @@
                     <h3><c:out value="${p.price}"/></h3>
                 </div>
                 <div class="col-md-2">
+                    <h3><c:out value="${p.description}"/></h3>
+                </div>
+                <div class="col-md-2">
                     <h3><c:out value="${p.category.name}"/></h3>
                 </div>
                 <div class="col-md-4">
-                    <a href="<c:url value="/servlet/admin/edit-product?c_id=${p.id}"/>" class="btn btn-outline-warning my-2 my-sm-0 ml-2">Edit</a>
-                    <a href="<c:url value="/servlet/admin/delete-product?c_id=${p.id}"/>" class="btn btn-outline-danger my-2 my-sm-0 ml-2">Delete</a>
+                    <a href="<c:url value="/servlet/admin/edit-product?p_id=${p.id}"/>" class="btn btn-outline-warning my-2 my-sm-0 ml-2">Edit</a>
+                    <a href="<c:url value="/servlet/admin/delete-product?p_id=${p.id}"/>" class="btn btn-outline-danger my-2 my-sm-0 ml-2">Delete</a>
                 </div>
             </div>
         </c:forEach>
 
+        <div>
+            <c:if test="${msg_del}">
+                <h5 style="color:red">The product was deleted</h5>
+            </c:if>
+        </div>
+
     </div>
 
     <a href="<c:url value="/servlet/admin/add-product"/>" class="btn btn-outline-success my-2 my-sm-0">Add Product</a>
+
 
 </div>
 

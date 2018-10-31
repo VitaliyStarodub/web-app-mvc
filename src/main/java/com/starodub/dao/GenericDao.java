@@ -8,7 +8,7 @@ public interface GenericDao<T, ID> {
 
     T findById(ID id);
 
-    void updateObject(T id);
+    void editObject(ID id, T object);
 
     void deleteByID(ID id);
 

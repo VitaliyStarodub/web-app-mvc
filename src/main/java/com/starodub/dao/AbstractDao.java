@@ -22,7 +22,7 @@ public class AbstractDao<T, ID> implements GenericDao<T, ID> {
     }
 
     @Override
-    public void updateObject(T id) {
+    public void editObject(ID id, T object) {
 
     }
 

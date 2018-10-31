@@ -33,6 +33,11 @@ public class UserFilter implements Filter {
         protectedUriMap.put("/servlet/product", USER);
         protectedUriMap.put("/servlet/home", USER);
         protectedUriMap.put("/servlet/admin", ADMIN);
+        protectedUriMap.put("/servlet/admin/categories", ADMIN);
+        protectedUriMap.put("/servlet/admin/products", ADMIN);
+        protectedUriMap.put("/servlet/admin/add-product", ADMIN);
+        protectedUriMap.put("/servlet/admin/delete-product", ADMIN);
+
     }
 
     @Override

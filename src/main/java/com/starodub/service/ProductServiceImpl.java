@@ -27,4 +27,14 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> findAll() {
         return productDao.findAll();
     }
+
+    @Override
+    public void deleteByID(Long id) {
+        productDao.deleteByID(id);
+    }
+
+    @Override
+    public void editProduct(Long id, Product product) {
+        productDao.editObject(id, product);
+    }
 }

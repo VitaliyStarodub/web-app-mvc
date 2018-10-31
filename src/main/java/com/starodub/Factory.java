@@ -1,9 +1,7 @@
 package com.starodub;
 
 import com.starodub.controller.*;
-import com.starodub.controller.admin.AddProductController;
-import com.starodub.controller.admin.GetAllCategoriesAdminController;
-import com.starodub.controller.admin.GetAllProductsAdminController;
+import com.starodub.controller.admin.*;
 import com.starodub.dao.*;
 import com.starodub.service.ProductService;
 import com.starodub.service.ProductServiceImpl;
@@ -83,6 +81,14 @@ public class Factory {
         return new GetAllProductsAdminController(getProductService(getConnection()));
     }
 
+    public static DeleteProductController getDeleteProductController() {
+        return new DeleteProductController(getProductService(getConnection()));
+    }
+
+    public static EditProductController getEditProductController() {
+        return new EditProductController(getProductService(getConnection()));
+    }
+
     public static AddProductController getAddProductController() {
         return new AddProductController(getProductService(getConnection()));
     }
@@ -92,4 +98,7 @@ public class Factory {
     }
 
 
+    public static EditProductByIdController getEditProductByIdController() {
+        return new EditProductByIdController(getCategoryDao(getConnection()), getProductDao(getConnection()));
+    }
 }

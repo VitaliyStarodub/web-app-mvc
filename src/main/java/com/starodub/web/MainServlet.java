@@ -29,9 +29,12 @@ public class MainServlet extends HttpServlet {
         controllerMap.put(Request.of("GET", "/servlet/admin/categories"), Factory.getAllCategoriesAdminController("manageCategories"));
         controllerMap.put(Request.of("GET", "/servlet/admin/products"), Factory.getAllProductsAdminController());
         controllerMap.put(Request.of("GET", "/servlet/admin/add-product"), Factory.getAllCategoriesAdminController("addProduct"));
+        controllerMap.put(Request.of("GET", "/servlet/admin/edit-product"), Factory.getEditProductByIdController());
+        controllerMap.put(Request.of("GET", "/servlet/admin/delete-product"), Factory.getDeleteProductController());
         controllerMap.put(Request.of("POST", "/servlet/login"), Factory.getLoginController());
         controllerMap.put(Request.of("POST", "/servlet/register"), Factory.getRegisterController());
         controllerMap.put(Request.of("POST", "/servlet/admin/add-product"), Factory.getAddProductController());
+        controllerMap.put(Request.of("POST", "/servlet/admin/edit-product"), Factory.getEditProductController());
     }
 
     @Override
