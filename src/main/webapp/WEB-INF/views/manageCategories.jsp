@@ -41,6 +41,12 @@
             </div>
         </c:forEach>
 
+        <div>
+            <c:if test="${msg_del}">
+                <h5 style="color:red">The category was deleted</h5>
+            </c:if>
+        </div>
+
     </div>
 
     <a href="<c:url value="/servlet/admin/add-category"/>" class="btn btn-outline-success my-2 my-sm-0">Add Category</a>

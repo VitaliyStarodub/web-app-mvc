@@ -17,7 +17,7 @@ public class ProductDaoImpl extends AbstractDao<Product, Long> implements Produc
     }
 
     /*@Override
-    public Product findById(Long aLong) {
+    public Product findByIdJoinProduct(Long aLong) {
         String query = "SELECT ID, NAME, PRICE, DESCRIPTION FROM PRODUCTS WHERE ID = ?;";
         PreparedStatement statement;
         ResultSet resultSet;

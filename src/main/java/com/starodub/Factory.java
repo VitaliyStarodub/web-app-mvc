@@ -3,10 +3,7 @@ package com.starodub;
 import com.starodub.controller.*;
 import com.starodub.controller.admin.*;
 import com.starodub.dao.*;
-import com.starodub.service.ProductService;
-import com.starodub.service.ProductServiceImpl;
-import com.starodub.service.UserService;
-import com.starodub.service.UserServiceImpl;
+import com.starodub.service.*;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -100,5 +97,25 @@ public class Factory {
 
     public static EditProductByIdController getEditProductByIdController() {
         return new EditProductByIdController(getCategoryDao(getConnection()), getProductDao(getConnection()));
+    }
+
+    public static AddCategoryController getAddCategoryController() {
+        return new AddCategoryController(getCategoryService(getConnection()));
+    }
+
+    private static CategoryService getCategoryService(Connection connection) {
+        return new CategoryServiceImpl(getCategoryDao(connection), getProductDao(connection));
+    }
+
+    public static DeleteCategoryController getDeleteCategoryController() {
+        return new DeleteCategoryController(getCategoryService(getConnection()));
+    }
+
+    public static EditCategoryByIdController getEditCategoryByIdController() {
+        return new EditCategoryByIdController(getCategoryService(getConnection()));
+    }
+
+    public static EditCategoryController getEditCategoryController() {
+        return new EditCategoryController(getCategoryService(getConnection()));
     }
 }

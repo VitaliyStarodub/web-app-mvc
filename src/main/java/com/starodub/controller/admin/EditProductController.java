@@ -46,10 +46,4 @@ public class EditProductController implements Controller {
 
         return Long.valueOf(object);
     }
-   /* private Long getIdFromRequest(Request request) {
-        String uri = request.getUri();
-        String number = uri.substring(0, uri.length() - 2);
-
-        return Long.valueOf(number);
-    }*/
 }

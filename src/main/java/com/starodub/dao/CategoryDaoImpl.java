@@ -39,8 +39,9 @@ public class CategoryDaoImpl extends AbstractDao<Category, Long> implements Cate
         return categories;
     }*/
 
-    @Override
-    public Category findById(Long id) {
+
+
+    public Category findByIdJoinProduct(Long id) {
         String query = "SELECT C.ID, C.CATEGORY_NAME, P.ID, P.NAME, P.PRICE, P.DESCRIPTION FROM CATEGORIES C" +
                 " JOIN PRODUCTS P ON C.ID = P.FK_CATEGORIES WHERE C.ID = ?;";
         PreparedStatement statement;

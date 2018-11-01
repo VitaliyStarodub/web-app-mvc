@@ -6,14 +6,13 @@ import com.starodub.service.CategoryService;
 import com.starodub.web.Request;
 import com.starodub.web.ViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class AddCategoryController implements Controller {
+public class EditCategoryController implements Controller {
 
     private final CategoryService categoryService;
 
-    public AddCategoryController(CategoryService categoryService) {
+    public EditCategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 
@@ -23,7 +22,7 @@ public class AddCategoryController implements Controller {
 
         Category category = new Category(categoryName);
 
-        categoryService.save(category);
+        categoryService.editCategory(getIdFromRequest(request), category);
 
         List<Category> categories = categoryService.findAll();
 
@@ -31,5 +30,11 @@ public class AddCategoryController implements Controller {
         vm.addAttribute("categories", categories);
 
         return vm;
+    }
+
+    private Long getIdFromRequest(Request request) {
+        String object = request.getParamsByName("c_id");
+
+        return Long.valueOf(object);
     }
 }

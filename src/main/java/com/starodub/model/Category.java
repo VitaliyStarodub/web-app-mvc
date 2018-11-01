@@ -53,6 +53,10 @@ public class Category {
         this.products = products;
     }
 
+    public boolean isProductsPresent() {
+        return products != null;
+    }
+
     @Override
     public String toString() {
         return "Category{" +
